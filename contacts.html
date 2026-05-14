@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакти SkyLayer — Замовити 3D-друк | Telegram, WhatsApp, Email</title>
+    <meta name="description" content="Зв'яжіться з SkyLayer для замовлення 3D-друку. Телефон: +38 (093) 995-09-81. Email: avbazasilchenko@gmail.com. Telegram: @SkyLayer3d. Відповідаємо швидко.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        emailjs.init("V7PkNvxcFjO3Zh5m1");
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container-lg">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <span class="brand-text">SkyLayer</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Головна</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Послуги</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="materials.html">Матеріали</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">Про нас</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="contacts.html">Контакти</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header py-5">
+        <div class="container-lg text-center">
+            <h1 class="display-4 fw-bold mb-2">Зв'яжіться з Нами</h1>
+            <p class="lead text-muted">Ми готові допомогти з вашим проектом</p>
+        </div>
+    </section>
+
+    <!-- Contact Form & Info -->
+    <section class="contact-section py-5">
+        <div class="container-lg">
+            <div class="row g-5">
+                <!-- Contact Form -->
+                <div class="col-lg-6">
+                    <h3 class="fw-bold mb-4">Форма Зворотного Зв'язку</h3>
+                    <form id="contactForm" class="contact-form needs-validation" novalidate>
+                        <div class="mb-3">
+                            <label for="from_name" class="form-label">Ваше Ім'я *</label>
+                            <input type="text" class="form-control" id="from_name" name="from_name" required>
+                            <div class="invalid-feedback">Будь ласка, введіть ваше ім'я.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="from_email" class="form-label">Email *</label>
+                            <input type="email" class="form-control" id="from_email" name="from_email" required>
+                            <div class="invalid-feedback">Будь ласка, введіть коректний email.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Телефон</label>
+                            <input type="tel" class="form-control" id="phone" name="phone">
+                        </div>
+                        <div class="mb-3">
+                            <label for="company" class="form-label">Компанія</label>
+                            <input type="text" class="form-control" id="company" name="company">
+                        </div>
+                        <div class="mb-3">
+                            <label for="service_type" class="form-label">Тип Послуги *</label>
+                            <select class="form-select" id="service_type" name="service_type" required>
+                                <option value="">Виберіть послугу</option>
+                                <option value="3d-print">3D-друк</option>
+                                <option value="bulk-order">Оптове замовлення</option>
+                                <option value="consultation">Консультація</option>
+                                <option value="other">Інше</option>
+                            </select>
+                            <div class="invalid-feedback">Будь ласка, виберіть тип послуги.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Повідомлення *</label>
+                            <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                            <div class="invalid-feedback">Будь ласка, введіть повідомлення.</div>
+                        </div>
+                        <div id="formMessage" class="alert d-none mb-3" role="alert"></div>
+                        <button type="submit" class="btn btn-primary btn-lg w-100" id="submitBtn">Відправити</button>
+                    </form>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="col-lg-6">
+                    <h3 class="fw-bold mb-4">Контактна інформація</h3>
+
+                    <div class="contact-info mb-4">
+                        <h5 class="fw-bold mb-2">
+                            <i class="fa fa-phone text-primary me-2"></i> Телефон
+                        </h5>
+                        <p class="text-muted"><a href="tel:+380939950981" class="text-decoration-none text-muted">+38 (093) 995-09-81</a></p>
+                    </div>
+
+                    <div class="contact-info mb-4">
+                        <h5 class="fw-bold mb-2">
+                            <i class="fa fa-envelope text-primary me-2"></i> Email
+                        </h5>
+                        <p class="text-muted"><a href="mailto:avbazasilchenko@gmail.com" class="text-decoration-none text-muted">avbazasilchenko@gmail.com</a></p>
+                    </div>
+
+                    <div class="contact-info mb-4">
+                        <h5 class="fw-bold mb-2">
+                            <i class="fa fa-globe text-primary me-2"></i> Сайт
+                        </h5>
+                        <p class="text-muted">skylayer.com.ua</p>
+                    </div>
+
+                    <div class="contact-info mb-4">
+                        <h5 class="fw-bold mb-2">
+                            <i class="fa fa-comments text-primary me-2"></i> Мессенджери
+                        </h5>
+                        <p class="text-muted">
+                            <a href="https://t.me/SkyLayer3d" target="_blank" class="text-decoration-none text-muted me-3">
+                                <i class="fa fa-telegram"></i> Telegram: @SkyLayer3d
+                            </a>
+                        </p>
+                        <p class="text-muted">
+                            <a href="https://wa.me/380939950981" target="_blank" class="text-decoration-none text-muted">
+                                <i class="fa fa-whatsapp"></i> WhatsApp: +38 (093) 995-09-81
+                            </a>
+                        </p>
+                    </div>
+
+                    <div class="contact-info mb-4">
+                        <h5 class="fw-bold mb-2">
+                            <i class="fa fa-clock-o text-primary me-2"></i> Графік роботи
+                        </h5>
+                        <ul class="list-unstyled text-muted">
+                            <li>Пн–Сб: 08:00–17:00</li>
+                            <li>Нд: Вихідний</li>
+                            <li class="mt-2"><strong>Виробництво: 24/7</strong></li>
+                        </ul>
+                    </div>
+
+                    <!-- File Upload Section -->
+                    <div class="contact-info mb-4">
+                        <h5 class="fw-bold mb-3">📁 Надіслати файл для розрахунку</h5>
+                        <p class="text-muted mb-3">Маєте готовий STL або STEP? Надішліть нам файл напряму — порахуємо вартість та строки.</p>
+                        <div class="d-flex gap-2">
+                            <a href="https://t.me/SkyLayer3d" target="_blank" class="btn btn-sm btn-outline-primary">
+                                <i class="fa fa-telegram me-2"></i> Telegram
+                            </a>
+                            <a href="https://wa.me/380939950981" target="_blank" class="btn btn-sm btn-outline-success">
+                                <i class="fa fa-whatsapp me-2"></i> WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section py-5">
+        <div class="container-lg">
+            <h2 class="text-center fw-bold mb-5">Часті запитання</h2>
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="accordion" id="faqAccordion">
+                        <!-- FAQ 1 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                    Як швидко ви можете розпочати виробництво?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Зазвичай ми можемо розпочати виробництво вже через 24–48 годин після узгодження файлів та оплати. Для термінових замовлень можливе прискорення процесу.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ 2 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                    Які файли ви приймаєте?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Ми працюємо з форматами STL та STEP. Надішліть файл — порахуємо вартість та строки.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ 3 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                    Чи є мінімальний розмір замовлення?
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Жорстких обмежень немає. Ми беремось як за малі партії, так і за великі серійні замовлення. Для великих обсягів — спеціальні ціни.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ 4 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                    Яка точність 3D-друку?
+                                </button>
+                            </h2>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Стандартна точність: ±0,2 мм. Для критичних деталей можлива точність ±0,1 мм із додатковою постобробкою.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ 5 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                                    Чи гарантуєте ви якість?
+                                </button>
+                            </h2>
+                            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Так, кожна партія проходить контроль якості. Перед запуском серії обов'язково виготовляємо та погоджуємо тестову партію.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ 6 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
+                                    Які способи оплати ви приймаєте?
+                                </button>
+                            </h2>
+                            <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Банківський переказ (ФОП), картки (Visa, Mastercard), готівковий розрахунок.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ 7 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq7">
+                                    Чи є знижки на оптові замовлення?
+                                </button>
+                            </h2>
+                            <div id="faq7" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Так, ми надаємо спеціальні ціни для великих обсягів. Зв'яжіться з нами для обговорення умов.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-5">
+        <div class="container-lg">
+            <div class="row mb-4">
+                <div class="col-md-6 mb-4">
+                    <h5 class="fw-bold mb-2">SkyLayer</h5>
+                    <p class="text-muted">Передові технології 3D-друку</p>
+                </div>
+                <div class="col-md-6">
+                    <h5 class="fw-bold mb-2">Посилання</h5>
+                    <ul class="list-unstyled text-muted small">
+                        <li><a href="index.html" class="footer-link">Головна</a> / <a href="services.html" class="footer-link">Послуги</a> / <a href="materials.html" class="footer-link">Матеріали</a> / <a href="about.html" class="footer-link">Про нас</a> / <a href="contacts.html" class="footer-link">Контакти</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary">
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="text-muted small mb-2">
+                        <i class="fa fa-envelope"></i> <a href="mailto:avbazasilchenko@gmail.com" class="text-decoration-none text-muted">avbazasilchenko@gmail.com</a>
+                    </p>
+                    <p class="text-muted small mb-2">
+                        <i class="fa fa-phone"></i> <a href="tel:+380939950981" class="text-decoration-none text-muted">+38 (093) 995-09-81</a>
+                    </p>
+                    <p class="text-muted small mb-4">
+                        <i class="fa fa-globe"></i> skylayer.com.ua
+                    </p>
+                    <p class="text-muted small mb-3">
+                        <a href="https://t.me/SkyLayer3d" target="_blank" class="text-decoration-none text-muted me-3" title="Telegram">
+                            <i class="fa fa-telegram"></i>
+                        </a>
+                        <a href="https://wa.me/380939950981" target="_blank" class="text-decoration-none text-muted" title="WhatsApp">
+                            <i class="fa fa-whatsapp"></i>
+                        </a>
+                    </p>
+                    <p class="text-muted small">© 2026 SkyLayer. Всі права захищені.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
