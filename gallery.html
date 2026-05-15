@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Галерея робіт — SkyLayer | Приклади 3D-друку PETG ABS TPU</title>
+    <meta name="description" content="Приклади виробів, надрукованих на обладнанні SkyLayer. Серійний 3D-друк з PETG, ABS, TPU та композитів. Партії будь-якого обсягу, відправка по Україні.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Gallery Grid Styles */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            aspect-ratio: 1/1;
+            cursor: pointer;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            background-color: var(--card-bg);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.15);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .gallery-item-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-item-overlay {
+            opacity: 1;
+        }
+
+        .gallery-item-overlay i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+        }
+
+        /* Lightbox Modal */
+        .gallery-modal {
+            background: rgba(5, 9, 18, 0.95);
+        }
+
+        .gallery-modal-content {
+            background: var(--darker-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .gallery-modal-body {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(10, 14, 39, 0.95), rgba(5, 9, 18, 0.95));
+            min-height: 500px;
+            padding: 2rem;
+        }
+
+        .gallery-modal-body img {
+            max-width: 100%;
+            max-height: 70vh;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        /* Responsive Grid */
+        @media (max-width: 1200px) {
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .gallery-modal-body {
+                min-height: 400px;
+            }
+
+            .gallery-modal-body img {
+                max-height: 50vh;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .gallery-modal-body {
+                min-height: 300px;
+                padding: 1rem;
+            }
+
+            .gallery-modal-body img {
+                max-height: 40vh;
+            }
+        }
+
+        .gallery-item {
+            animation: fadeIn 0.6s ease;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container-lg">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <span class="brand-text">SkyLayer</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Головна</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Послуги</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="materials.html">Матеріали</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="gallery.html">Галерея</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">Про нас</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacts.html">Контакти</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header py-5">
+        <div class="container-lg text-center">
+            <h1 class="fw-bold mb-3">Приклади робіт</h1>
+            <p class="lead text-muted">Зразки виробів, надрукованих на нашому обладнанні</p>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section py-5">
+        <div class="container-lg">
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Gallery items will be loaded here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Lightbox Modal -->
+    <div class="modal fade" id="galleryModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="gallery-modal-content">
+                <div class="gallery-modal-body">
+                    <img id="modalImage" src="" alt="Gallery Image" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <section class="cta-section py-5">
+        <div class="container-lg text-center">
+            <h2 class="fw-bold mb-3">Готові розпочати?</h2>
+            <p class="lead mb-4">Зв'яжіться з нами для обговорення вашого проекту — надішліть STL/STEP, порахуємо вартість та строки</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+                <a href="contacts.html" class="btn btn-primary btn-lg">Зв'язатися</a>
+                <a href="https://t.me/SkyLayer3d" target="_blank" class="btn btn-lg" style="background-color: #2AABEE; color: white; border-color: #2AABEE;">
+                    <i class="fa fa-telegram"></i> Telegram
+                </a>
+                <a href="https://wa.me/380939950981" target="_blank" class="btn btn-lg" style="background-color: #25D366; color: white; border-color: #25D366;">
+                    <i class="fa fa-whatsapp"></i> WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-5">
+        <div class="container-lg">
+            <div class="row mb-4">
+                <div class="col-md-6 mb-4">
+                    <h5 class="fw-bold mb-2">SkyLayer</h5>
+                    <p class="text-muted">Передові технології 3D-друку</p>
+                </div>
+                <div class="col-md-6">
+                    <h5 class="fw-bold mb-2">Посилання</h5>
+                    <ul class="list-unstyled text-muted small">
+                        <li><a href="index.html" class="footer-link">Головна</a> / <a href="services.html" class="footer-link">Послуги</a> / <a href="materials.html" class="footer-link">Матеріали</a> / <a href="gallery.html" class="footer-link">Галерея</a> / <a href="about.html" class="footer-link">Про нас</a> / <a href="contacts.html" class="footer-link">Контакти</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary">
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="text-muted small mb-2">
+                        <i class="fa fa-envelope"></i> <a href="mailto:skylayer3d@ukr.net" class="text-decoration-none text-muted">skylayer3d@ukr.net</a>
+                    </p>
+                    <p class="text-muted small mb-2">
+                        <i class="fa fa-phone"></i> <a href="tel:+380939950981" class="text-decoration-none text-muted">+38 (093) 995-09-81</a>
+                    </p>
+                    <p class="text-muted small mb-4">
+                        <i class="fa fa-globe"></i> skylayer3d.github.io/SkyLayer
+                    </p>
+                    <p class="text-muted small mb-3">
+                        <a href="https://t.me/SkyLayer3d" target="_blank" class="text-decoration-none text-muted me-3" title="Telegram">
+                            <i class="fa fa-telegram"></i>
+                        </a>
+                        <a href="https://wa.me/380939950981" target="_blank" class="text-decoration-none text-muted" title="WhatsApp">
+                            <i class="fa fa-whatsapp"></i>
+                        </a>
+                    </p>
+                    <p class="text-muted small">© 2026 SkyLayer. Всі права захищені.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        const galleryImages = [
+            'IMG_7875.jpg',
+            'IMG_7885.jpg',
+            'IMG_7889.jpg',
+            'IMG_7891.jpg',
+            'IMG_7893.jpg',
+            'IMG_7898.jpg',
+            'IMG_7907.jpg',
+            'IMG_7908.jpg',
+            'photo_2026-05-15_15-18-32.jpg',
+            'photo_2026-05-15_15-18-33.jpg',
+            'photo_2026-05-15_15-18-34.jpg',
+            'photo_2026-05-15_15-18-35 (2).jpg',
+            'photo_2026-05-15_15-18-35.jpg'
+        ];
+
+        function loadGallery() {
+            const galleryGrid = document.getElementById('galleryGrid');
+            galleryGrid.innerHTML = '';
+
+            galleryImages.forEach((image, index) => {
+                const item = document.createElement('div');
+                item.className = 'gallery-item';
+                item.innerHTML = `
+                    <img src="Media/${image}" alt="Gallery Image ${index + 1}" loading="lazy">
+                    <div class="gallery-item-overlay">
+                        <i class="fa fa-search-plus"></i>
+                    </div>
+                `;
+                item.addEventListener('click', () => {
+                    document.getElementById('modalImage').src = `Media/${image}`;
+                    const modal = new bootstrap.Modal(document.getElementById('galleryModal'));
+                    modal.show();
+                });
+                galleryGrid.appendChild(item);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', loadGallery);
+    </script>
+</body>
+</html>
